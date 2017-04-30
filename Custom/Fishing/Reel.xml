@@ -1,0 +1,52 @@
+ <Ui xmlns="http://www.blizzard.com/wow/ui/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<Frame name="Reel_Frame" parent="UIParent" toplevel="true" hidden="true">
+		<Size>
+	  	<AbsDimension x="200" y="60" />
+		</Size>
+		<Anchors>
+			<Anchor point="TOP">
+				<Offset>
+					<RelDimension x="0" y="-0.1" />
+				</Offset>
+			</Anchor>
+		</Anchors>
+
+		<Layers>
+			<Layer>
+				<FontString name="ReelStatusText" text="Reel is fishing …" inherits="SystemFont_Shadow_Med3">
+					<Anchors>
+						<Anchor point="TOP" />
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+
+		<Frames>
+			<Button name="$parent_StopButton" inherits="UIPanelButtonTemplate" text="停止">
+				<Size>
+					<AbsDimension x="200" y="25" />
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOM">
+						<Offset>
+							<AbsDimension x="0" y="11" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+
+				<NormalFont style="GameFontNormal" />
+
+				<Scripts>
+					<OnClick>Reel:Stop()</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+
+		<Scripts>
+			<OnLoad>Reel:Initialize(self)</OnLoad>
+			<OnUpdate>Reel:Run()</OnUpdate>
+		</Scripts>
+	</Frame>
+</Ui>
